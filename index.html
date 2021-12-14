@@ -25,10 +25,10 @@ body {
   padding: 0 4px;
 }
 
-/* Create two equal columns that sits next to each other */
+/* Create 15 equal columns that sits next to each other */
 .column {
-  -ms-flex: 50%; /* IE 10 */
-  flex: 50%;
+  -ms-flex: 6.66%; /* IE 10 */
+  flex: 6.66%;
   padding: 0 4px;
 }
 
@@ -55,17 +55,16 @@ body {
   background-color: #666;
   color: white;
 }
+
+.container { position: relative; width: 100%; height: 100%; float: left; }
+.checkbox { position: absolute; bottom: 0px; left: 0px; }
 </style>
 </head>
 <body>
 
 <!-- Header -->
 <div class="header" id="myHeader">
-  <h1>Image Grid</h1>
-  <p>Click on the buttons to change the grid view.</p>
-  <button class="btn" onclick="one()">1</button>
-  <button class="btn active" onclick="two()">2</button>
-  <button class="btn" onclick="four()">4</button>
+  <h1>Re;Chaos' Dyes</h1>
 </div>
 
 <!-- Photo Grid -->
@@ -77,7 +76,12 @@ body {
     <img src="img/mystic_mahogany.png" style="width:100%">
     <img src="img/mystic_mahogany.png" style="width:100%">
     <img src="img/mystic_mahogany.png" style="width:100%">
-
+    <div>
+      <div class="container">
+        <label for="img1"><img class="img" src="img/mystic_mahogany.png" style="width:100%"/></label>
+        <input type="checkbox" class="checkbox" checked="false" id="img1" name="img1" value="0" />
+      </div>
+    </div>
   </div>
 
   <!-- Orange -->
@@ -239,49 +243,6 @@ body {
 
 
 </div>
-
-<script>
-// Get the elements with class="column"
-var elements = document.getElementsByClassName("column");
-
-// Declare a loop variable
-var i;
-
-// Full-width images
-function one() {
-    for (i = 0; i < elements.length; i++) {
-    elements[i].style.msFlex = "100%";  // IE10
-    elements[i].style.flex = "100%";
-  }
-}
-
-// Two images side by side
-function two() {
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.msFlex = "50%";  // IE10
-    elements[i].style.flex = "50%";
-  }
-}
-
-// Four images side by side
-function four() {
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.msFlex = "6.66%";  // IE10
-    elements[i].style.flex = "6.66%";
-  }
-}
-
-// Add active class to the current button (highlight it)
-var header = document.getElementById("myHeader");
-var btns = header.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
-</script>
 
 </body>
 </html>
