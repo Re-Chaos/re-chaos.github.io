@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <style>
 * {
   box-sizing: border-box;
@@ -9,6 +10,7 @@
 
 body {
   margin: 0;
+  font-size: 100%;
   font-family: Arial, Helvetica, sans-serif;
   background-color:#2c2f33;
 }
@@ -16,7 +18,59 @@ body {
 .header {
   color:lightgrey;
   text-align: center;
-  padding: 32px;
+}
+
+
+.clearButton {
+  background-color: darkred;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position: absolute;
+  transition-duration: 0.2s;
+
+  right: 0vw;
+  top: 0vw;
+}
+.clearButton:hover {
+  background-color: grey;
+}
+
+.clearButton:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.orderButton {
+
+  background-color: darkred;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position: absolute;
+  transition-duration: 0.2s;
+
+  position: absolute;
+  left: 0vw;
+  top: 0vw;
+
+}
+
+.orderButton:hover {
+  background-color: grey;
+}
+
+.orderButton:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .row {
@@ -24,7 +78,7 @@ body {
   display: flex;
   -ms-flex-wrap: wrap; /* IE 10 */
   flex-wrap: wrap;
-  padding: 0 4px;
+  padding: 0 10px;
 }
 
 /* Create 15 equal columns that sits next to each other */
@@ -49,8 +103,15 @@ body {
 
 .checkbox {
   position: absolute;
-  bottom: 0px;
+  bottom: 0.75vw;
   left: 0px;
+}
+.dye {
+  position: absolute;
+  color: lightgrey;
+  font-size: 1vw;
+  bottom: 0.75vw;
+  left: 0.5vw;
 }
 
 .checkbox + label {
@@ -65,10 +126,15 @@ body {
 </head>
 <body>
 
+<button id="clear" class="clearButton"> Clear </button>
+
+<button id="order" class="orderButton"> Get Dye Order </button>
+
 <!-- Header -->
 <div class="header" id="myHeader">
   <h1>Re;Chaos' Dyes</h1>
 </div>
+
 
 <!-- Photo Grid -->
 <div class="row">
@@ -77,204 +143,190 @@ body {
   <div class="column">
     <div>
       <div class="container">
-        <input type="checkbox" class="checkbox" id="img1" name="img1" autocomplete="off" />
-        <label for="img1"><img class="img" src="img/mystic_mahogany.png" style="width:100%"/></label>
+        <input type="checkbox" class="checkbox" id="img_1_1" name="mystic" value="$n1zq9" autocomplete="off" onclick=copyToClipboard("$n1zq9")  hidden/>
+        <label for="img_1_1"><img class="img" src="img/mystic_mahogany.png" style="width:100%"/></label>
+        <label for="img_1_1" class="dye">$n1zq9</label>
       </div>
     </div>
     <div>
       <div class="container">
-        <input type="checkbox" class="checkbox" id="img2" name="img2" autocomplete="off" />
-        <label for="img2"><img class="img" src="img/mystic_mahogany.png" style="width:100%"/></label>
+        <input type="checkbox" class="checkbox" id="img_1_2" name="mystic" value="$bhmdr" autocomplete="off" onclick=copyToClipboard("$bhmdr")  hidden/>
+        <label for="img_1_2"><img class="img" src="img/mystic_red_stop.png" style="width:100%"/></label>
+        <label for="img_1_2" class="dye">$bhmdr</label>
       </div>
     </div>
     <div>
       <div class="container">
-        <input type="checkbox" class="checkbox" id="img3" name="img3" autocomplete="off" />
-        <label for="img3"><img class="img" src="img/mystic_mahogany.png" style="width:100%"/></label>
+        <input type="checkbox" class="checkbox" id="img_1_" name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_1_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_1_" class="dye"></label>
       </div>
     </div>
-    <div>
+    <!-- <div>
       <div class="container">
-        <input type="checkbox" class="checkbox" id="img4" name="img4" autocomplete="off" />
-        <label for="img4"><img class="img" src="img/mystic_mahogany.png" style="width:100%"/></label>
+        <input type="checkbox" class="checkbox" id="img_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_" class="dye"></label>
       </div>
-    </div>
-    <div>
-      <div class="container">
-        <input type="checkbox" class="checkbox" id="img5" name="img5" autocomplete="off" />
-        <label for="img5"><img class="img" src="img/mystic_mahogany.png" style="width:100%"/></label>
-      </div>
-    </div>
-    <div>
-      <div class="container">
-        <input type="checkbox" class="checkbox" id="img6" name="img6" autocomplete="off" />
-        <label for="img6"><img class="img" src="img/mystic_mahogany.png" style="width:100%"/></label>
-      </div>
-    </div>
-    <div>
-      <div class="container">
-        <input type="checkbox" class="checkbox" id="img7" name="img7" autocomplete="off" />
-        <label for="img7"><img class="img" src="img/mystic_mahogany.png" style="width:100%"/></label>
-      </div>
-    </div>
+    </div> -->
 
 
   </div>
 
   <!-- Orange -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_2_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_2_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_2_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Yellow -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_3_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_3_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_3_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Blue -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_4_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_4_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_4_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Blue -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_5_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_5_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_5_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Blue -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_6_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_6_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_6_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Green -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_7_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_7_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_7_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Green -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_8_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_8_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_8_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
 
   <!-- Pink -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_9_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_9_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_9_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Magenta -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_10_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_10_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_10_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Purple -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_11_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_11_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_11_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Dark Purple -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_12_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_12_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_12_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
 
   <!-- Peach/Brown -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_13_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_13_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_13_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Black/Neutral -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_14_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_14_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_14_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
   <!-- Misc -->
   <div class="column">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
-    <img src="img/mystic_mahogany.png" style="width:100%">
+    <div>
+      <div class="container">
+        <input type="checkbox" class="checkbox" id="img_15_"  name="mystic" value="" autocomplete="off" onclick=copyToClipboard("")  hidden/>
+        <label for="img_15_"><img class="img" src="img/.png" style="width:100%"/></label>
+        <label for="img_15_" class="dye"></label>
+      </div>
+    </div>
   </div>
 
 
@@ -282,4 +334,31 @@ body {
 </div>
 
 </body>
+<script>
+function copyToClipboard(a) {
+  navigator.clipboard.writeText(a);
+}
+function uncheckAll() {
+    document.querySelectorAll('input[type="checkbox"]')
+      .forEach(el => el.checked = false);
+}
+
+document.querySelector('button[id="clear"]').addEventListener('click', uncheckAll)
+
+document.getElementById('order').onclick = function() {
+  var markedCheckbox = document.getElementsByName('mystic');
+  var order1 = "@Re;Chaos#1148\nDyes: "
+  for (var checkbox of markedCheckbox) {
+    if (checkbox.checked) {
+      // document.body.append(checkbox.value + ' ');
+      order1 += checkbox.value + ' ';
+    }
+  }
+  order1 += "\nCard: ";
+  navigator.clipboard.writeText(order1)
+}
+
+
+
+</script>
 </html>
