@@ -992,14 +992,15 @@ document.querySelector('button[id="clear"]').addEventListener('click', uncheckAl
 
 document.getElementById('order').onclick = function() {
   var markedCheckbox = document.getElementsByName('mystic');
-  var order1 = "@Re;Chaos#1148\nDyes: "
+  // var order1 = "@Re;Chaos#1148\nDyes: "
+  var order1 = ""
   for (var checkbox of markedCheckbox) {
     if (checkbox.checked) {
       // document.body.append(checkbox.value + ' ');
       order1 += checkbox.value + ' ';
     }
   }
-  order1 += "\nCard: ";
+  // order1 += "\nCard: ";
   navigator.clipboard.writeText(order1)
 }
 
